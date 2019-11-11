@@ -312,7 +312,7 @@ func (d *FileDescriptor) goFileName(pathType pathType) string {
 	if ext := path.Ext(name); ext == ".proto" || ext == ".protodevel" {
 		name = name[:len(name)-len(ext)]
 	}
-	name += ".micro.go"
+	name += ".pb.micro.go"
 
 	if pathType == pathTypeSourceRelative {
 		return name
