@@ -1,13 +1,14 @@
 module github.com/micro/protoc-gen-micro
 
-require (
-	github.com/armon/circbuf v0.0.0-20190214190532-5111143e8da2 // indirect
-	github.com/golang/protobuf v1.3.1
-	github.com/mattn/go-colorable v0.1.1 // indirect
-	github.com/micro/go-micro v1.1.0
-	golang.org/x/net v0.0.0-20190327214358-63eda1eb0650
-	google.golang.org/genproto v0.0.0-20190327125643-d831d65fe17d // indirect
-	google.golang.org/grpc v1.19.1
-)
+go 1.13
 
-replace github.com/golang/lint => github.com/golang/lint v0.0.0-20190227174305-8f45f776aaf1
+require (
+	github.com/golang/protobuf v1.3.2
+	github.com/micro/go-micro v1.16.0
+	github.com/miekg/dns v1.1.22 // indirect
+	golang.org/x/crypto v0.0.0-20191108234033-bd318be0434a // indirect
+	golang.org/x/net v0.0.0-20191109021931-daa7c04131f5
+	golang.org/x/sys v0.0.0-20191110163157-d32e6e3b99c4 // indirect
+	google.golang.org/genproto v0.0.0-20191108220845-16a3f7862a1a // indirect
+	google.golang.org/grpc v1.25.1
+)
