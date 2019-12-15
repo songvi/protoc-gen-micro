@@ -298,6 +298,7 @@ func (g *micro) generateClientMethod(reqServ, servName, serviceDescVar string, m
 
 	// Stream auxiliary types and methods.
 	g.P("type ", servName, "_", methName, "Service interface {")
+	g.P("Context() context.Context")
 	g.P("SendMsg(interface{}) error")
 	g.P("RecvMsg(interface{}) error")
 	g.P("Close() error")
@@ -318,6 +319,11 @@ func (g *micro) generateClientMethod(reqServ, servName, serviceDescVar string, m
 
 	g.P("func (x *", streamType, ") Close() error {")
 	g.P("return x.stream.Close()")
+	g.P("}")
+	g.P()
+
+	g.P("func (x *", streamType, ") Context() context.Context {")
+	g.P("return x.stream.Context()")
 	g.P("}")
 	g.P()
 
@@ -407,6 +413,7 @@ func (g *micro) generateServerMethod(servName string, method *pb.MethodDescripto
 
 	// Stream auxiliary types and methods.
 	g.P("type ", servName, "_", methName, "Stream interface {")
+	g.P("Context() context.Context")
 	g.P("SendMsg(interface{}) error")
 	g.P("RecvMsg(interface{}) error")
 	g.P("Close() error")
@@ -429,6 +436,11 @@ func (g *micro) generateServerMethod(servName string, method *pb.MethodDescripto
 
 	g.P("func (x *", streamType, ") Close() error {")
 	g.P("return x.stream.Close()")
+	g.P("}")
+	g.P()
+
+	g.P("func (x *", streamType, ") Context() context.Context {")
+	g.P("return x.stream.Context()")
 	g.P("}")
 	g.P()
 
