@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	pb "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/micro/protoc-gen-micro/generator"
+	"github.com/micro/protoc-gen-micro/v2/generator"
 )
 
 // Paths for packages used by code generated in this file,
