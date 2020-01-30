@@ -14,8 +14,8 @@ import (
 // relative to the import_prefix of the generator.Generator.
 const (
 	contextPkgPath = "context"
-	clientPkgPath  = "github.com/micro/go-micro/client"
-	serverPkgPath  = "github.com/micro/go-micro/server"
+	clientPkgPath  = "github.com/micro/go-micro/v2/client"
+	serverPkgPath  = "github.com/micro/go-micro/v2/server"
 )
 
 func init() {
@@ -157,12 +157,14 @@ func (g *micro) generateService(file *generator.FileDescriptor, service *pb.Serv
 
 	// NewClient factory.
 	g.P("func New", servAlias, " (name string, c ", clientPkg, ".Client) ", servAlias, " {")
-	g.P("if c == nil {")
-	g.P("c = ", clientPkg, ".NewClient()")
-	g.P("}")
-	g.P("if len(name) == 0 {")
-	g.P(`name = "`, serviceName, `"`)
-	g.P("}")
+	/*
+		g.P("if c == nil {")
+		g.P("c = ", clientPkg, ".NewClient()")
+		g.P("}")
+		g.P("if len(name) == 0 {")
+		g.P(`name = "`, serviceName, `"`)
+		g.P("}")
+	*/
 	g.P("return &", unexport(servAlias), "{")
 	g.P("c: c,")
 	g.P("name: name,")
