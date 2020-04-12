@@ -224,7 +224,7 @@ func (g *micro) generateService(file *generator.FileDescriptor, service *pb.Serv
 	g.P()
 
 	// Server registration.
-	g.P("func Register", servName, "Handler(s ", serverPkg, ".Server, hdlr ", serverType, ", opts ...", serverPkg, ".HandlerOption) error {")
+	g.P("func Register", servName, "GrpcHandler(s ", serverPkg, ".Server, hdlr ", serverType, ", opts ...", serverPkg, ".HandlerOption) error {")
 	g.P("type ", unexport(servName), " interface {")
 
 	// generate interface methods
